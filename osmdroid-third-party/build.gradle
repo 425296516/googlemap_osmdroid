@@ -1,0 +1,32 @@
+description = 'OSMdroid Android 3rd Party'
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.8.2'
+    compile project(':osmdroid-android')
+    //compile(group: 'org.apache.james', name: 'apache-mime4j', version: '0.6') {}
+
+    compile files('libs/android-google-maps-api13.jar')
+    compile 'com.google.android.gms:play-services:8.+'
+    compile 'com.google.android.gms:play-services-maps:8.+'
+}
